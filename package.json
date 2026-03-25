@@ -1,0 +1,27 @@
+{
+  "name": "kilocode-boilerplate",
+  "version": "1.0.0",
+  "description": "A framework-agnostic boilerplate for setting up KiloCode configurations in new projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "kilocode",
+    "boilerplate",
+    "template",
+    "configuration",
+    "development",
+    "setup"
+  ],
+  "author": "KiloCode",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kilocode/kilocode-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kilocode/kilocode-boilerplate/issues"
+  },
+  "homepage": "https://github.com/kilocode/kilocode-boilerplate#readme"
+}
