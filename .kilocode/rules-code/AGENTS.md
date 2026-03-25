@@ -1,5 +1,12 @@
 # Project Coding Rules (Non-Obvious Only)
 
+## Capability Boundary (Enforced)
+
+- Scope: Implement features, refactor, and maintain code quality for requested scope.
+- Allowed operations: create/edit/delete source and test files, run verification commands.
+- Required: keep changes scoped, preserve backward compatibility unless user approved breaking changes.
+- Forbidden operations: broad unrelated refactors, architecture-only planning without implementation intent.
+
 ## Mandatory Tool Usage
 
 - **Sequential Thinking**: Always use before implementing complex features or refactoring
@@ -19,6 +26,19 @@
 
 - **Use `ask_followup_question` tool** with 2-4 suggested implementation approaches
 - **Never assume** - confirm understanding of requirements before writing code
+
+## Mandatory Plan Progress Updates (/plans)
+
+- Code mode MUST read the assigned plan file under `/plans/` before implementing.
+- After each meaningful implementation batch (one or more file edits), code mode MUST update the same plan file with:
+  - checklist item state change
+  - timestamped progress log entry
+  - short note of changed files and what was implemented
+- When implementation is complete, code mode MUST:
+  - mark remaining completed checklist items
+  - set final status to `Done`
+  - add a concise final summary
+- If code changes are made but `/plans` progress is not updated, the task is considered incomplete.
 
 ## Import Order
 

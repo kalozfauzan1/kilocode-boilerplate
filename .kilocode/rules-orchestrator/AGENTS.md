@@ -1,5 +1,41 @@
 # Project Orchestrator Rules (Non-Obvious Only)
 
+## Capability Boundary (Enforced)
+
+- Scope: Decompose, sequence, coordinate, and route work across modes.
+- Allowed operations: planning, dependency mapping, progress tracking, mode-switch orchestration.
+- Forbidden operations: direct implementation edits unless explicitly delegated by user.
+- Required: present clear next-step options and recommended mode transitions.
+
+## Mandatory Plan-Driven Workflow (/plans)
+
+- Orchestrator is the owner of plan files under `/plans/`.
+- Before any implementation handoff to code mode, orchestrator MUST create a plan file at:
+  - `/plans/YYYY-MM-DD_<task-slug>.md`
+- Implementation handoff is invalid if no plan file path is provided.
+
+### Required Plan Contents
+
+- Task title and objective
+- Scope (in-scope / out-of-scope)
+- Ordered checklist with actionable steps
+- Status field: `Planned | In Progress | Blocked | Done`
+- Progress Log section for chronological updates
+- Risks/notes + completion summary section
+
+### Handoff Requirements to Code Mode
+
+- Provide explicit plan path and current status.
+- Mark status as `In Progress` when implementation starts.
+- Ensure checklist items are implementation-ready and testable.
+- If architect produced `Execution Inputs`, convert them into checklist milestones.
+
+### Progress Ownership
+
+- Orchestrator keeps macro progress current (phase/state transitions).
+- Code mode keeps micro progress current (step-by-step implementation updates).
+- If code changes happen without plan updates, orchestrator must treat the task as incomplete.
+
 ## Mandatory Workflow: Architect Handoff Protocol
 
 After creating a plan using architect mode or architectural skills, the orchestrator MUST:

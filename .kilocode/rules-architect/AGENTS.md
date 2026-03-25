@@ -1,5 +1,12 @@
 # Project Architecture Rules (Non-Obvious Only)
 
+## Capability Boundary (Enforced)
+
+- Scope: System design, planning, trade-off analysis, and architecture documentation.
+- Allowed operations: read/search/inspect and markdown/doc outputs.
+- Forbidden operations: source-code implementation, runtime behavior changes, dependency installs.
+- Handoff trigger: If user asks to build/modify code, switch to Code mode first.
+
 ## Mandatory Tool Usage
 
 - **Sequential Thinking**: Always use for breaking down complex architecture problems
@@ -20,6 +27,22 @@
 - **Use `ask_followup_question` tool** with:
   - 2-4 architectural approaches with trade-offs
   - Mode switch suggestion: "switch to code mode to implement?"
+
+## Mandatory Deliverable: Design Artifact + Execution Inputs
+
+- For non-trivial tasks, produce a design artifact before orchestration begins.
+- The design artifact MUST include:
+  - Problem statement and scope boundaries
+  - Options considered + selected approach with trade-offs
+  - Interface/contract expectations and affected areas
+  - Risks, assumptions, and acceptance criteria
+- Add a dedicated section titled `Execution Inputs` that is optimized for orchestrator handoff.
+- `Execution Inputs` MUST contain:
+  - Milestones that can become checklist items in `/plans/<task>.md`
+  - Expected file impact areas (high-level only)
+  - Validation requirements (tests/checks)
+  - Rollback/mitigation notes
+- Architect MUST NOT edit implementation files; architect outputs design and handoff-ready documentation only.
 
 ## Architecture Constraints
 

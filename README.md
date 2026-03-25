@@ -1,133 +1,72 @@
 # KiloCode Boilerplate
 
-A framework-agnostic boilerplate for setting up KiloCode configurations in new projects.
+A framework-agnostic boilerplate for setting up KiloCode configurations in new projects, providing standardized patterns for AI-assisted development.
 
 ## Overview
 
-This boilerplate provides a standardized setup for KiloCode with:
+This boilerplate simplifies KiloCode setup with:
 
-- Universal configurations that work across different frameworks and languages
-- Template files with placeholders for project-specific customization
-- Recommended skills organized by category
-- Serena workflow integration
-- Manual configuration instructions to analyze codebases and create/update AGENTS.md files
-- Codebase indexing capabilities when KiloCode's native indexing is enabled
+- **Universal configurations** - Works across frameworks and languages
+- **Template files** - Ready for project-specific customization
+- **Organized skills** - Categorized by mode (Ask, Code, Architect, Debug, Orchestrator, Review)
+- **Workflow integration** - Serena workflow for enhanced code intelligence
+- **Automated initialization** - `init` command analyzes codebases and creates AGENTS.md files
+- **Codebase indexing** - Semantic search for natural language queries (when enabled)
 
 ## Quick Start
 
-1. Clone this repository as a template for your new project
-2. Customize the configuration files with your project details
-3. Add framework-specific skills as needed
-4. Manually configure your AGENTS.md file with your project-specific information
-5. Start using KiloCode with consistent patterns
+### For New Projects
+1. Clone this repository as a template
+2. Run the `init` command to automatically analyze your codebase and generate AGENTS.md files
+3. Customize configurations as needed
 
-## Using This Boilerplate in Existing Projects
+### For Existing Projects
 
-If you have an existing project and want to integrate KiloCode with this boilerplate:
-
-### Option 1: Copy Files Directly
+#### Option 1: Copy Files Directly
 1. Copy the `.kilocode/` directory to your project root
-2. Copy `AGENTS.md`, `mcp.json`, `README.md`, and `init-command.md` to your project root
-3. Update `AGENTS.md` with your project's specific stack, commands, and conventions
-4. Review and customize the mode-specific rules in `.kilocode/rules-*` directories as needed
-5. Manually update AGENTS.md with your project-specific information
+2. Copy `AGENTS.md`, `mcp.json`, and `init-command.md` to your project root
+3. Run the `init` command to analyze your codebase
+4. Review and customize mode-specific rules in `.kilocode/rules-*` directories
 
-### Option 2: Git Submodule Approach
+#### Option 2: Git Submodule Approach
 1. Add this repository as a submodule:
    ```bash
-   git submodule add https://github.com/your-username/kilocode-boilerplate.git .kilocode-template
+   git submodule add https://github.com/kilocode/kilocode-boilerplate.git .kilocode-template
    ```
-2. Copy the necessary files from the submodule to your project
-3. Configure your project-specific settings
+2. Copy necessary files from the submodule to your project
+3. Run the `init` command to configure
 
-### Option 3: Fork and Customize
+#### Option 3: Fork and Customize
 1. Fork this repository
-2. Customize the templates for your organization's specific needs
-3. Use your forked version as the template for all your projects
+2. Customize templates for your organization's needs
+3. Use your forked version as the template for all projects
 
-## Customization Guide
+## Key Features
 
-After copying the boilerplate files to your project:
+### Automated Initialization
 
-1. **Update `AGENTS.md`** with your project's:
-   - Technology stack
-   - Build/deploy commands
-   - Project-specific conventions
-   - Framework-specific patterns
+The `init` command ([init-command.md](init-command.md)) is a powerful tool that:
+- Analyzes your codebase to discover non-obvious, project-specific information
+- Creates or updates AGENTS.md files with only essential information
+- Focuses on details that would surprise an experienced developer
+- Preserves existing designed rules and workflows
+- Generates mode-specific files in `.kilocode/rules-*/` directories
 
-2. **Configure `.kilocode/config.json`** with your:
-   - API keys and endpoints
-   - Preferred models
-   - Temperature and token settings
+### Configuration Files
 
-3. **Customize mode-specific rules** in `.kilocode/rules-*` directories based on your project's requirements
+| File | Purpose |
+|------|---------|
+| [`AGENTS.md`](AGENTS.md) | Main project documentation (template) |
+| [`mcp.json`](mcp.json) | Root-level MCP server configuration |
+| [`.kilocode/config.json`](.kilocode/config.json) | API and model configurations |
+| [`.kilocode/mcp.json`](.kilocode/mcp.json) | MCP server configurations |
+| [`.kilocode/rules-*/AGENTS.md`](.kilocode/rules-ask/AGENTS.md) | Mode-specific rules (Ask, Code, Architect, Debug, Orchestrator) |
+| [`.kilocode/workflows/`](.kilocode/workflows/) | Serena workflow definitions |
+| [`.kilocode/skills-*/`](.kilocode/skills-ask/) | Universal skills organized by category |
 
-4. **Add framework-specific skills** in the appropriate skills directories if needed
+### Codebase Indexing
 
-5. **Manually update AGENTS.md** with your project-specific information
-
-## Manual Configuration Process
-
-The boilerplate includes instructions for manually configuring your AGENTS.md file with project-specific, non-obvious information:
-
-1. Analyze your codebase to discover:
-
-   - Build/lint/test commands
-   - Code style guidelines
-   - Project-specific patterns and conventions
-   - Non-obvious gotchas and requirements
-
-2. Update AGENTS.md files with only essential information that would surprise an experienced developer
-
-3. Remove all standard practices and framework defaults to keep the files concise and valuable
-
-See [init-command.md](init-command.md) for the complete configuration process definition.
-
-## Configuration Files
-
-### Core Configuration
-
-- [`.kilocode/config.json`](.kilocode/config.json) - API and model configurations
-- [`.kilocode/mcp.json`](.kilocode/mcp.json) - MCP server configurations
-- [`mcp.json`](mcp.json) - Root-level MCP configuration
-
-### Mode-Specific Rules
-
-- [`.kilocode/rules-ask/AGENTS.md`](.kilocode/rules-ask/AGENTS.md) - Ask mode rules
-- [`.kilocode/rules-code/AGENTS.md`](.kilocode/rules-code/AGENTS.md) - Code mode rules
-- [`.kilocode/rules-architect/AGENTS.md`](.kilocode/rules-architect/AGENTS.md) - Architect mode rules
-- [`.kilocode/rules-debug/AGENTS.md`](.kilocode/rules-debug/AGENTS.md) - Debug mode rules
-- [`.kilocode/rules-orchestrator/AGENTS.md`](.kilocode/rules-orchestrator/AGENTS.md) - Orchestrator mode rules
-
-### Workflows
-
-- [`.kilocode/workflows/serena-setup.md`](.kilocode/workflows/serena-setup.md) - Setup workflow
-- [`.kilocode/workflows/serena-dev-workflow.md`](.kilocode/workflows/serena-dev-workflow.md) - Development workflow
-- [`.kilocode/workflows/serena-general.md`](.kilocode/workflows/serena-general.md) - General workflow
-
-### Skills
-
-The boilerplate includes universal skills organized by category:
-
-- **Ask Skills** - Clarification and documentation skills
-- **Architect Skills** - Architecture and design skills
-- **Orchestrator Skills** - Task management and coordination
-- **Review Skills** - Quality and security analysis
-- **Docs Specialist Skills** - Documentation generation
-
-## Customization
-
-1. Update [AGENTS.md](AGENTS.md) with your project's stack and commands (following the manual configuration process)
-2. Customize mode-specific rules in `.kilocode/rules-*` directories
-3. Add framework-specific skills as needed (see below)
-4. Update environment-specific configurations
-
-## Codebase Indexing
-
-This boilerplate works seamlessly with KiloCode's native Codebase Indexing feature. When enabled, the AI will automatically use semantic search to find relevant code across your project.
-
-### Enabling Codebase Indexing
-
+Enable KiloCode's Codebase Indexing for semantic search:
 1. Open KiloCode settings in VS Code
 2. Navigate to "Codebase Indexing" section
 3. Enable the toggle switch
@@ -135,37 +74,35 @@ This boilerplate works seamlessly with KiloCode's native Codebase Indexing featu
 5. Set up Qdrant URL (e.g., `http://localhost:6333`)
 6. Save and start initial indexing
 
-Once enabled, the AI will automatically use `codebase_search` for natural language queries about your codebase.
+Once enabled, the AI will automatically use `codebase_search` for natural language queries.
 
-## Adding Framework-Specific Skills
+## Customization
 
-1. Update [AGENTS.md](AGENTS.md) with your project's stack and commands (following the manual configuration process)
-2. Customize mode-specific rules in `.kilocode/rules-*` directories
-3. Add framework-specific skills as needed (see below)
-4. Update environment-specific configurations
+After initial setup, customize the boilerplate:
 
-## Adding Framework-Specific Skills
-
-Use the prompt in [ADD-SKILLS-PROMPT.md](ADD-SKILLS-PROMPT.md) to get AI recommendations for skills specific to your project's framework and requirements.
+1. **Update AGENTS.md** - Add your project's stack, commands, and conventions
+2. **Configure .kilocode/config.json** - Set API keys, preferred models, and temperature/token settings
+3. **Customize mode-specific rules** - Modify `.kilocode/rules-*` directories
+4. **Add framework-specific skills** - Use [ADD-SKILLS-PROMPT.md](ADD-SKILLS-PROMPT.md) to get AI recommendations
 
 ## Project Structure
 
 ```
 kilocode-boilerplate/
 ├── .kilocode/
-│   ├── config.json                    # Universal - API/model configs
-│   ├── mcp.json                       # Universal - MCP servers
-│   ├── rules-ask/                     # Template - Ask mode rules
-│   ├── rules-code/                    # Template - Code mode rules
-│   ├── rules-architect/               # Template - Architect mode rules
-│   ├── rules-debug/                   # Template - Debug mode rules
-│   ├── rules-orchestrator/            # Template - Orchestrator mode rules
-│   ├── workflows/                     # Universal - Workflow definitions
+│   ├── config.json                    # API/model configurations
+│   ├── mcp.json                       # MCP server configurations
+│   ├── rules-ask/                     # Ask mode rules
+│   ├── rules-code/                    # Code mode rules
+│   ├── rules-architect/               # Architect mode rules
+│   ├── rules-debug/                   # Debug mode rules
+│   ├── rules-orchestrator/            # Orchestrator mode rules
+│   ├── workflows/                     # Serena workflow definitions
 │   └── skills-*/                      # Universal and template skills
-├── AGENTS.md                          # Template - Main documentation
-├── mcp.json                           # Universal - Root MCP config
+├── AGENTS.md                          # Main project documentation template
+├── mcp.json                           # Root MCP configuration
 ├── README.md                          # This file
-├── ADD-SKILLS-PROMPT.md               # Prompt for skill recommendations
+├── ADD-SKILLS-PROMPT.md               # Skill recommendation prompt
 └── init-command.md                    # Automated initialization command
 ```
 
@@ -175,4 +112,4 @@ MIT
 
 ## Contributing
 
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to get started.
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.

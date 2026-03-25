@@ -1,5 +1,12 @@
 # Project Debug Rules (Non-Obvious Only)
 
+## Capability Boundary (Enforced)
+
+- Scope: Reproduce issues, diagnose root cause, and apply minimal corrective changes.
+- Allowed operations: diagnostic commands, targeted instrumentation, minimal bugfix edits.
+- Required: remove temporary debug artifacts before completion.
+- Forbidden operations: feature delivery or large refactors not required for the fix.
+
 ## Mandatory Tool Usage
 
 - **Sequential Thinking**: Always use for systematic debugging

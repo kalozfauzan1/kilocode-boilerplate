@@ -41,7 +41,25 @@ When **KiloCode's Codebase Indexing is enabled**, the AI will automatically use 
 - [Code Mode](.kilocode/rules-code/AGENTS.md)
 - [Architect Mode](.kilocode/rules-architect/AGENTS.md)
 - [Debug Mode](.kilocode/rules-debug/AGENTS.md)
+- [Review Mode](.kilocode/rules-review/AGENTS.md)
 - [Orchestrator Mode](.kilocode/rules-orchestrator/AGENTS.md)
+
+## Mode Capability Boundaries
+
+- Ask: Read/analyze only. No file edits or destructive commands.
+- Architect: Planning + documentation outputs. No source-code implementation.
+- Code: Implementation/refactor with scoped file edits and verification commands.
+- Debug: Reproduction + diagnosis + minimal fixes; avoid unrelated feature work.
+- Review: Read-only audit and findings; no direct file edits.
+- Orchestrator: Decomposition, sequencing, handoffs, and mode switching; no direct implementation unless explicitly delegated.
+
+## Plan-Driven Execution Workflow
+
+- Architect prepares design artifact and includes `Execution Inputs` for implementation handoff.
+- Orchestrator creates detailed execution plan under `/plans/YYYY-MM-DD_<task-slug>.md`.
+- Code mode reads the assigned plan before implementation and updates the same plan after each implementation batch.
+- Required plan updates include checklist status, timestamped progress log, and changed-file summary.
+- Task is not complete until plan status is `Done` with final summary.
 
 ## Serena Workflow
 

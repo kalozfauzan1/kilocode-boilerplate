@@ -2,6 +2,13 @@
 
 ## Ask Mode Specific Rules
 
+## Capability Boundary (Enforced)
+
+- Scope: Explanation, analysis, and requirement clarification only.
+- Allowed operations: read/search/inspect operations and question-asking.
+- Forbidden operations: source edits, file create/delete, destructive commands, dependency changes.
+- Handoff trigger: If implementation is requested, switch to Code mode before any file change.
+
 ### Mandatory Tool Usage
 
 - **Sequential Thinking**: Always use before answering questions
